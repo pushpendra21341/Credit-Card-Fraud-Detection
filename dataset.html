@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded CSV File</title>
+  <style>
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Embedded CSV File</h1>
+    
+    
+    <div id="csv-table"></div>
+  </div>
+
+  <script>
+   
+    function displayCSV() {
+      const csvFileUrl = 'demo.csv'; 
+      
+      fetch(csvFileUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.text();
+        })
+        .then(data => {
+          const lines = data.split('\n');
+          const headers = lines[0].split(',');
+          let html = '<table>';
+          
+          html += '<tr>';
+          headers.forEach(header => {
+            html += `<th>${header}</th>`;
+          });
+          html += '</tr>';
+          
+          for (let i = 1; i < lines.length; i++) {
+            const cells = lines[i].split(',');
+            html += '<tr>';
+            cells.forEach(cell => {
+              html += `<td>${cell}</td>`;
+            });
+            html += '</tr>';
+          }
+          
+          html += '</table>';
+          
+          document.getElementById('csv-table').innerHTML = html;
+        })
+        .catch(error => console.error('Error fetching or parsing CSV file:', error));
+    }
+    
+    displayCSV();
+  </script>
+
+</body>
+
+</html>

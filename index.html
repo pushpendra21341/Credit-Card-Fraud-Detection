@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Fraud Detection</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right top, #000000, #000000, #712AB7);
+      color: #fff;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8); 
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.1); 
+    }
+
+    .navbar a.active {
+      background-color: #fff;
+      color: #000;
+    }
+    #hero {
+      background-image: url('Cyber_bg.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    #hero p {
+      font-size: 23px; 
+      line-height: 1.8; 
+      text-align: justify; 
+      color: #f0f0f0; 
+      background-color: rgba(0, 0, 0, 0.5); 
+      padding: 20px;
+      border-radius: 10px; 
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .section-text {
+      flex: 1;
+      padding: 0 20px;
+      text-align: justify;
+    }
+
+    .section-text h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #fff; 
+    }
+
+    .section-text p {
+      color: #eee; 
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .section-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .section-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .footer {
+      background-color: rgba(0, 0, 0, 0.8); 
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* Button Styles */
+    .hero-button {
+      background-color: #ff6347; 
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #ff4500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <h1>Credit Card Fraud Detection</h1>
+    <div>
+      <a href="#" class="active">Home</a>
+      <a href="Graphical Analysis.html">Visualization</a>
+      <a href="Analysis.html">Analysis</a>
+      <a href="#">About Us</a>
+    </div>
+  </div>
+
+  <section id="hero">
+    <p>Explore our powerful credit card fraud detection system fueled by machine learning. Leveraging transaction details from past records, our model distinguishes between genuine and fraudulent transactions with precision.Safeguard your financial operations by detecting and preventing fraudulent activities, ensuring a secure and trustworthy environment for all transactions.</p>
+    <button class="hero-button" onclick="runFlaskApp()">Check the model</button>
+  </section>
+
+  <div class="container">
+
+    <div class="section">
+      <div class="section-text">
+        <h2>What is Credit Card Fraud</h2>
+        <p>Credit card fraud is the unauthorized use of credit or debit card information to make purchases or transactions without the cardholder's permission. It can happen through stolen cards, card skimming, phishing, identity theft, or account takeover. This type of fraud leads to financial losses for cardholders and issuers and undermines trust in the financial system. Effective fraud detection measures, including machine learning models, are crucial to detect and prevent such fraudulent activities.</p>
+      </div>
+      <div class="section-image">
+        <img src="Credit_card.png" alt="Credit Card">
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Footer content here</p>
+  </div>
+
+ 
+  <script>
+    function runFlaskApp() {
+      window.location.href = 'http://127.0.0.1:5000/';
+    }
+  </script>
+</body>
+
+</html>

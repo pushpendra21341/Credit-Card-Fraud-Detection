@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber-Themed Webpage with Image Background</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right top, #000000, #000000, #000000); 
+      color: #fff; 
+    }
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8); 
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      margin: 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar a.active {
+      background-color: #fff;
+      color: #000;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    .heading {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .outer-card {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      color: #000;
+    }
+
+    .inner-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      color: #000;
+    }
+
+    .inner-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      display: none;
+      max-width: 100%;
+      margin: 0 auto; 
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      padding: 10px 20px;
+      background-color: #009688;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #00796B;
+    }
+
+    .footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+  <div class="navbar">
+    <div>
+      <h1 style="margin: 0;">Credit Card Fraud Detection</h1>
+    </div>
+    <div>
+      <a href="index.html" >Home</a>
+      <a href="Graphical Analysis.html" class="active">Visualization</a>
+      <a href="Analysis.html">Analysis</a>
+      <a href="#">About Us</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="heading">Welcome to Our Graphical Data Analysis</div>
+
+    <div class="outer-card" id="cardContainer">
+    </div>
+
+  </div>
+
+  <script>
+    const cardContainer = document.getElementById("cardContainer");
+    const cardData = [
+      { text: "Dataset imbalance check", buttonText: "Show Graph", image: "Checking imbalanced datasets.png" },
+      { text: "Number of rows and columns in datasets", buttonText: "Show Graph", image: "Number of row columns.png" },
+      { text: "Differentiate normal and fraud transactions", buttonText: "Show Graph", image: "differentiate normal and fraud.png" },
+      { text: "Non-null values", buttonText: "Show Graph", image: "Non-Null Count.png" },
+      { text: "ACC, PR, RC, F1 after oversampling", buttonText: "Show Graph", image: "Scores after oversampling.png" },
+      { text: "ACC, PR, RC, F1 after undersampling", buttonText: "Show Graph", image: "Scores after undersampling.png" }
+    ];
+  
+    cardData.forEach((data, index) => {
+      const outerCard = document.createElement("div");
+      outerCard.classList.add("outer-card");
+  
+      const outerText = document.createElement("p");
+      outerText.textContent = `${data.text}`;
+      outerCard.appendChild(outerText);
+  
+      const innerCard = document.createElement("div");
+      innerCard.classList.add("inner-card");
+  
+      const innerText = document.createElement("p");
+      innerText.textContent = data.text;
+      innerCard.appendChild(innerText);
+  
+      const img = document.createElement("img");
+      img.src = data.image;
+      img.alt = "Image";
+      img.style.display = "none";
+      innerCard.appendChild(img);
+  
+      const buttonContainer = document.createElement("div");
+      buttonContainer.classList.add("button-container");
+  
+      const button = document.createElement("button");
+      button.textContent = data.buttonText;
+      button.onclick = function() {
+        if (button.textContent === "Show Graph") {
+          img.style.display = "block";
+          innerText.style.display = "none";
+          button.textContent = "Hide Graph";
+        } else {
+          img.style.display = "none";
+          innerText.style.display = "block";
+          button.textContent = "Show Graph";
+        }
+      };
+  
+      buttonContainer.appendChild(button);
+      outerCard.appendChild(innerCard);
+      outerCard.appendChild(buttonContainer);
+      cardContainer.appendChild(outerCard);
+    });
+  </script>
+  <div class="footer">
+    <p>Footer content here</p>
+  </div>
+</body>
+
+</html>
